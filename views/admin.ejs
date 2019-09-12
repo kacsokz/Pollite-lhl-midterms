@@ -1,0 +1,106 @@
+<% include ./partials/_header %>
+
+<main>
+    <% include ./partials/_form %>
+    <script>
+      function getDataFromServer(callback) {
+        const sampleData = [// should deal with no data
+          {
+            question: 'What is your favourite sport?',
+            choice: 'hockey',
+            description: 'ice and pucks',
+            ranking: '15' },
+          {
+            question: 'What is your favourite sport?',
+            choice: 'nascar',
+            description: 'is this even a sport?',
+            ranking: '21' },
+          {
+            question: 'What is your favourite sport?',
+            choice: 'football',
+            description: 'aka soccer',
+            ranking: '24' } ];
+
+        var pollId = $(".results").attr("data-id");
+        $.getJSON(`/pollite/${pollId}/json`, (data, status) => {
+          if (!data) {
+            data = sampleData
+          };
+
+          return callback(data)
+        })
+        .fail(() => {
+          // should deal with error here
+          callback(sampleData)
+        })
+
+      }
+      function convertDataToCanvasData(data) {
+        const outPut = { dataPoints: [] };
+        return data.reduce((outObj, pollResult) => {
+          outObj.title = pollResult.question;
+          outObj.dataPoints.push({
+            indexLabel: pollResult.choice,
+            y: Number(pollResult.ranking),
+            label: pollResult.ranking,
+            tooltip: pollResult.description
+          });
+          return outObj;
+        }, outPut);
+      }
+
+      function showChart(dataFromBack) {
+
+        const canvasData = convertDataToCanvasData(dataFromBack)
+        const options = {
+          animationEnabled: true,
+          title: {
+            text: canvasData.title,
+            fontColor: "Black",
+            fontFamily: "sans-serif"
+          },
+          axisY: {
+            tickThickness: 0,
+            lineThickness: 0,
+            valueFormatString: " ",
+            gridThickness: 0
+          },
+          axisX: {
+            tickThickness: 0,
+            lineThickness: 0,
+            labelFontSize: 26,
+            labelFontColor: "Black"
+          },
+          data: [{
+            indexLabelFontSize: 30,
+            toolTipContent: "<span style=\"color:#62C9C3\">{tooltip}:</span> <span style=\"color:#CD853F\"><strong>{y}</strong></span>",
+            indexLabelPlacement: "inside",
+            indexLabelFontColor: "white",
+            indexLabelFontWeight: 600,
+            color: "#53b3cb",
+            type: "bar",
+            dataPoints: canvasData.dataPoints
+          }]
+        };
+
+        $("#chartContainer").CanvasJSChart(options);
+      }
+
+      window.onload = function () {
+        //Better to construct options first and then pass it as a parameter
+        const dataFromBack = getDataFromServer(showChart);
+      }
+
+    </script>
+
+    <div id="chartContainer" style="height: 370px; width: 85%;"></div>
+
+<section class="results" data-id=<%= pollId %> ></section>
+
+  <form method="POST" action="/pollite/<%= pollId %>/delete">
+    <div class="button">
+      <button class="delete-poll btn btn-danger" type="submit">Delete Poll</button>
+    </div>
+  </form>
+
+<% include ./partials/_footer %>

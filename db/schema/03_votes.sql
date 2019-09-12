@@ -1,0 +1,10 @@
+-- Drop and recreate Votes table
+
+DROP TABLE IF EXISTS votes CASCADE;
+
+CREATE TABLE votes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  poll_id INTEGER REFERENCES polls(id) ON DELETE CASCADE,
+  choice_id INTEGER REFERENCES choices(id) ON DELETE CASCADE,
+  ranking SMALLINT NOT NULL
+);

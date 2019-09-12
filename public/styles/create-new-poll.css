@@ -1,0 +1,71 @@
+.new-poll-form {
+  display: none;
+}
+
+.new-poll {
+  padding: 1.5em 0;
+}
+
+.email {
+  font-size: 1.5em;
+}
+.question {
+  font-size: 1.5em;
+}
+
+.poll-email {
+  font-size: 1.5em;
+}
+
+.poll-question {
+  font-size: 1.5em;
+
+}
+
+#choices {
+  font-size: 1.5em;
+}
+
+.poll-ch1 {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.poll-ch2 {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.poll-ch3 {
+  font-size: 1em;
+  margin-bottom: 1em;
+}
+
+.poll-ch1-desc {
+  font-size: 1em;
+  margin-bottom: 1em;
+
+}
+
+.poll-ch2-desc {
+  font-size: 1em;
+  margin-bottom: 1em;
+
+}
+
+.poll-ch3-desc {
+  font-size: 1em;
+  margin-bottom: 1em;
+
+}
+
+.button {
+  text-align: right;
+  padding-right: 1.5em;
+  padding-bottom: 1.5em;
+  margin-right: 1.5em;
+}
+
+.new-poll-submit {
+  font-size: 2em;
+}

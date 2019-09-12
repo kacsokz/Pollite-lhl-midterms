@@ -1,0 +1,51 @@
+.question {
+  font-size: 2.5em;
+  padding: 0 112px;
+  color: white;
+  text-align: center;
+}
+
+.form-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option {
+  padding: 0 12px;
+  background-color: #53b3cb;
+  font-size:3em;
+  color: white;
+}
+
+.choices-list {
+  padding: 0 250px;
+  margin: 25px;
+  list-style-type: none;
+}
+
+.choice {
+  border-block-color: red;
+  border: 0 0 .2px 0;
+  font-size: 50px;
+}
+
+.instructions {
+  font-size: 2em;
+  margin-bottom: 85px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.new-vote-submit {
+  font-size: 2em;
+}
+
+.choice-description {
+  text-align: end;
+  font-size: 35px;
+  margin-bottom: 15px;
+
+}

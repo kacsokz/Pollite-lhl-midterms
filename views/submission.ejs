@@ -1,0 +1,39 @@
+<% include ./partials/_header %>
+
+<main>
+  <% include ./partials/_form %>
+  <form class="submission-form" action="/pollite/<%= pollData.id %>" method="POST">
+    <header>
+      <h2 class="question"><%= pollData.question %></h2>
+    </header>
+
+    <% if (pollChoices) { %>
+    <ul id="sortable" class="sortable choices-list">
+      <% pollChoices.forEach((choice) => { %>
+      <li class="option">
+        <h3 class="choice"><%= choice.title %></h3>
+        <h4 class="choice-description"><%= choice.description %></h4>
+        <input name="choice-<%= choice.id %>" type="hidden" value="">
+      </li>
+      <% }) %>
+    </ul>
+    <% } %>
+
+    <footer class="form-foot">
+      <p class="instructions">Drag your choices to order from favourite to least!</p>
+
+      <div class="button">
+        <input class="new-vote-submit btn btn-danger" type="submit" value="Vote">
+      </div>
+    </footer>
+  </form>
+
+  <p>Poll created at: <%= pollData.date %></p>
+
+  <script>
+    sortable('.sortable');
+
+  </script>
+</main>
+
+<% include ./partials/_footer %>

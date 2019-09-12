@@ -1,0 +1,35 @@
+.primary  {
+  height: 300px;
+  width: 100%;
+  background-image: url("../docs/question-mark.jpg");
+  margin-bottom: 1em;
+
+
+}
+
+.logo {
+  padding-left: .5em;
+  padding-top: .5em;
+  font-size: 6em;
+  color: white;
+  display: flex;
+  margin: 0;
+}
+
+.motto {
+  color: white;
+  font-size: 2em;
+  display: flex;
+  padding-left: 1.5em;
+}
+
+.button {
+  text-align: right;
+  padding-right: 1.5em;
+  padding-bottom: 1.5em;
+  margin-right: 1.5em;
+}
+
+.create-poll {
+  font-size: 2em;
+}

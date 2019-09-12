@@ -1,0 +1,45 @@
+<form class="new-poll-form" action="/pollite/" method="POST">
+  <fieldset class="new-poll">
+    <legend hidden>User info</legend>
+    <div class="row">
+      <div class="col">
+        <input class="poll-email form-control" type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="col">
+        <input class="poll-question form-control" type="text" name="question" placeholder="Question here..." required>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset class="new-choice">
+    <legend hidden>Choices</legend>
+    <div id="choices">
+      <div class="row">
+        <div class="col">
+          <textarea class="poll-ch1 form-control" name="ch1" data-maxlength="255" placeholder="Choice one here..." required></textarea>
+        </div>
+        <div class="col">
+          <textarea class="poll-ch1-desc form-control" name="ch1desc" data-maxlength="255" placeholder="Optional description"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <textarea class="poll-ch2 form-control" name="ch2" data-maxlength="255" placeholder="Choice two here..." required></textarea>
+        </div>
+        <div class="col">
+          <textarea class="poll-ch2-desc form-control" name="ch2desc" data-maxlength="255" placeholder="Optional description"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <textarea class="poll-ch3 form-control" name="ch3" data-maxlength="255" placeholder="Choice three here..." required></textarea>
+        </div>
+        <div class="col">
+        <textarea class="poll-ch3-desc form-control" name="ch3desc" data-maxlength="255" placeholder="Optional description"></textarea>
+      </div>
+    </div>
+  </fieldset>
+  <div class="button">
+    <input class="new-poll-submit btn btn-danger" type="submit" value="Submit">
+  </div>
+</form>
